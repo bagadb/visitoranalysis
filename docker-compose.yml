@@ -1,0 +1,11 @@
+version: '3'
+services:
+  redis-server:
+    restart: always
+    image: 'redis'
+      
+  nginx-server:
+    restart: always
+    build: ./app/
+    ports:
+      - "80:80"
