@@ -1,11 +1,16 @@
 version: '3'
 services:
-  redis-server:
+  psql-server:
+    image: postgres:14.4-alpine
     restart: always
-    image: 'redis'
+    environment:
+      POSTGRES_USER: nodeapp
+      POSTGRES_PASSWORD: ${PGPASSWORD}
+      POSTGRES_DB: VISITORS
       
-  nginx-server:
-    restart: always
-    build: ./app/
-    ports:
-      - "80:80"
+
+#  nginx-server:
+#    restart: always
+#    build: ./app/
+#    ports:
+#      - "80:80"
