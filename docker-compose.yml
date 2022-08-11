@@ -7,7 +7,6 @@ services:
       POSTGRES_USER: nodeapp
       POSTGRES_PASSWORD: ${PGPASSWORD}
       POSTGRES_DB: VISITORS
-      
 
 #  nginx-server:
 #    restart: always
