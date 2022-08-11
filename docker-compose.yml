@@ -1,14 +1,23 @@
 version: '3'
+
 services:
   psql-server:
     image: postgres:14.4-alpine
-    restart: always
     environment:
-      POSTGRES_USER: nodeapp
+      POSTGRES_USER: ${PGUSER}
       POSTGRES_PASSWORD: ${PGPASSWORD}
-      POSTGRES_DB: VISITORS
+      POSTGRES_DB: ${PGDATABASE}
 
-#  nginx-server:
+  node-server:
+    depends_on:
+      - psql-server
+    build: ./node/
+    env_file:
+      - "./.env"
+    ports:
+      - "80:8080"
+
+#  nginx-server:  
 #    restart: always
 #    build: ./app/
 #    ports:
