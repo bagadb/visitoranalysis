@@ -2,7 +2,8 @@ version: '3'
 
 services:
   psql-server:
-    image: postgres:14.4-alpine
+#    image: postgres:14.4-alpine
+    build: ./postgres/
     environment:
       POSTGRES_USER: ${PGUSER}
       POSTGRES_PASSWORD: ${PGPASSWORD}
