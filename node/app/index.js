@@ -8,7 +8,7 @@ var server = express()
 server.get('/', function (req, res) {
 	const text = 'INSERT INTO visitors_list(visitor_ip) VALUES ( $1 ) ON CONFLICT ( visitor_ip ) DO UPDATE SET count = visitors_list.count + 1'
 	const values = [ req.ip ];
-	answer = 'nothing yet'
+	answer = 'still nothing yet'
 	res.send( answer );
 })
 
