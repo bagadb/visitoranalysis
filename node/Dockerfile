@@ -3,9 +3,11 @@
 FROM node:18-alpine
 
 WORKDIR /app/
-COPY app/* /app/
 
+ADD app/package.json /app/package.json
+ADD app/node_modules /app/node_modules
 RUN npm install
+RUN npm install --global nodemon
 
 EXPOSE 8080
 
