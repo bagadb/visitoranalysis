@@ -43,9 +43,9 @@ pipeline {
           }
         }
 
-        stage('') {
+        stage('Log Instance IP') {
           steps {
-            sh 'echo "Connect here: http://$(curl ipinfo.io)"'
+            sh 'curl ipinfo.io'
           }
         }
 
