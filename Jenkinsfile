@@ -35,5 +35,22 @@ pipeline {
       }
     }
 
+    stage('Docker Compose Up') {
+      parallel {
+        stage('Docker Compose Up') {
+          steps {
+            sh 'docker-compose up -d'
+          }
+        }
+
+        stage('') {
+          steps {
+            sh 'echo "Connect here: http://$(curl ipinfo.io)"'
+          }
+        }
+
+      }
+    }
+
   }
 }
