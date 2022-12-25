@@ -16,7 +16,7 @@ services:
       - "./.env"
     volumes:
       - "./node/app/src:/app/src"
-      - "./node/node-modules:/app/node-modules"
+      - "./node/node-modules:/app/node_modules"
     ports:
       - "80:8080"
 
