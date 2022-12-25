@@ -13,8 +13,25 @@ pipeline {
     }
 
     stage('List Files') {
+      parallel {
+        stage('List Files') {
+          steps {
+            sh 'ls -la'
+          }
+        }
+
+        stage('Copy Env File') {
+          steps {
+            sh 'cp ~/.env .'
+          }
+        }
+
+      }
+    }
+
+    stage('Docker Compose Build') {
       steps {
-        sh 'ls -la'
+        sh 'docker-compose build'
       }
     }
 
