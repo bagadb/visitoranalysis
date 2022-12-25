@@ -13,8 +13,19 @@ pipeline {
     }
 
     stage('List Files') {
-      steps {
-        sh 'ls -la'
+      parallel {
+        stage('List Files') {
+          steps {
+            sh 'ls -la'
+          }
+        }
+
+        stage('Copy Env File') {
+          steps {
+            sh 'cp ~/.env .'
+          }
+        }
+
       }
     }
 
