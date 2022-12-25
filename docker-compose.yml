@@ -16,8 +16,9 @@ services:
       - "./.env"
     volumes:
       - "./node/app/src:/app/src"
+      - "./node/node-modules:/app/node-modules"
     ports:
-      - "8080:8080"
+      - "80:8080"
 
 #  nginx-server:  
 #    restart: always
