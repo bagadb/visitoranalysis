@@ -18,9 +18,9 @@ pipeline {
       }
     }
 
-    stage('Docker Build') {
+    stage('Docker Compose Build') {
       steps {
-        sh 'docker build --label \'visitoranalysis-env\' .'
+        sh 'docker-compose build'
       }
     }
 
