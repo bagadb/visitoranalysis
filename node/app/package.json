@@ -4,6 +4,6 @@
 		"pg": "8.7.3"
 	},
 	"scripts": {
-		"start":"[ NODE_ENV == 'production' ] && node '/app/src/index.js' || nodemon '/app/src/index.js'"
+		"start":"[ NODE_ENV == 'production' ] && node '~/app/src/index.js' || nodemon '~/app/src/index.js'"
 	}
 }
