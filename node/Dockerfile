@@ -10,7 +10,5 @@ RUN npm install --global nodemon
 
 EXPOSE 8080
 
-ENTRYPOINT [ "npm" ]
-
-CMD [ "start" ]
+CMD [ "npm", "start" ]
 
