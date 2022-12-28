@@ -36,8 +36,19 @@ pipeline {
     }
 
     stage('Log Instance IP') {
-      steps {
-        sh 'curl ipinfo.io'
+      parallel {
+        stage('Log Instance IP') {
+          steps {
+            sh 'curl ipinfo.io'
+          }
+        }
+
+        stage('up -d') {
+          steps {
+            sh 'docker-compose up -d'
+          }
+        }
+
       }
     }
 
