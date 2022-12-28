@@ -4,6 +4,6 @@
 		"pg": "8.7.3"
 	},
 	"scripts": {
-		"start":"nodemon '~/app/src/index.js'"
+		"start":"node '~/app/src/index.js'"
 	}
 }
