@@ -16,12 +16,11 @@ services:
       - "./.env"
     volumes:
       - "./node/app/src:/app/src"
+
+  nginx-server:
+    image: nginx:1.23
+    depends_on:
+      - node-server
     ports:
-      - "80:8080"
-
-
-#  nginx-server:  
-#    restart: always
-#    build: ./app/
-#    ports:
-#      - "80:80"
+      - "80:80"
+    restart: always
