@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  psql-server:
+    build: ./postgres/
+    environment:
+      POSTGRES_USER: ${PGUSER}
+      POSTGRES_PASSWORD: ${PGPASSWORD}
+      POSTGRES_DB: ${PGDATABASE}
+      
+  node-server:
+    depends_on:
+      - psql-server
+    build: ./node/
+    env_file:
+      - "./.env"
+    volumes:
+      - "./node/app/src:/app/src"
+
+  nginx-server:
+    build: ./nginx/
+    depends_on:
+      - node-server
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: always
