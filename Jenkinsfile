@@ -1,7 +1,7 @@
 pipeline {
   agent {
     node {
-      label 'staging-server'
+      label 'visitoranalysis-live-server'
     }
 
   }
