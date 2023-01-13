@@ -18,9 +18,10 @@ services:
       - "./node/app/src:/app/src"
 
   nginx-server:
-    image: nginx:1.23
+    build: ./nginx/
     depends_on:
       - node-server
     ports:
       - "80:80"
+      - "443:443"
     restart: always
