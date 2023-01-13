@@ -12,7 +12,7 @@ const { table } = require('console');
 const pool = new Pool()
 
 var server = express();
-server.set('trust proxy', 'true');
+server.set('trust proxy', true);
 
 function getWhoisDataFromAPI(ip_address) {
     return new Promise(function(resolve, reject) {
