@@ -11,7 +11,8 @@ const { response, json } = require('express');
 const { table } = require('console');
 const pool = new Pool()
 
-var server = express()
+var server = express();
+server.set('trust proxy', '172.19.0.4');
 
 function getWhoisDataFromAPI(ip_address) {
     return new Promise(function(resolve, reject) {
